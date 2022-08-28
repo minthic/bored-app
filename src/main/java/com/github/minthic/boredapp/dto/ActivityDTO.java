@@ -2,6 +2,7 @@ package com.github.minthic.boredapp.dto;
 
 public class ActivityDTO
 {
+    private Integer id;
     private String description;
     private Integer price;
     private Integer participants;
@@ -9,6 +10,16 @@ public class ActivityDTO
     private Integer duration;
 
     // region Getters and setters
+
+    public Integer getId()
+    {
+        return id;
+    }
+
+    public void setId(Integer id)
+    {
+        this.id = id;
+    }
 
     public String getDescription()
     {
@@ -66,7 +77,8 @@ public class ActivityDTO
     public String toString()
     {
         return "ActivityDTO{" +
-                "description='" + description + '\'' +
+                "id=" + id +
+                ", description='" + description + '\'' +
                 ", price=" + price +
                 ", participants=" + participants +
                 ", effort=" + effort +
