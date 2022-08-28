@@ -1,2 +1,2 @@
 spring.datasource.url: jdbc:mysql://localhost:3306/bored
-spring.datasource.username: gor
+spring.jpa.hibernate.ddl-auto: create-drop
