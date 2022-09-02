@@ -45,4 +45,14 @@ public class ActivityService
         }
         return mapper.map(activity, ActivityDTO.class);
     }
+
+    public void clear()
+    {
+        activityRepository.deleteAll();
+    }
+
+    public void delete(Integer id)
+    {
+        activityRepository.deleteById(id);
+    }
 }

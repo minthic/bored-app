@@ -31,9 +31,22 @@ public class ActivityController
     }
 
     @GetMapping
-    @RequestMapping("/{id}")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ActivityDTO read(@PathVariable Integer id)
     {
         return activityService.read(id);
+    }
+
+    @DeleteMapping
+    public void clear()
+    {
+        activityService.clear();
+    }
+
+    @DeleteMapping
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable Integer id)
+    {
+        activityService.delete(id);
     }
 }
