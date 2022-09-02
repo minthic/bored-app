@@ -1,12 +1,26 @@
 package com.github.minthic.boredapp.dto;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
 public class ActivityDTO
 {
     private Integer id;
+
     private String description;
+
+    @Min(value = 1)
+    @Max(value = 5)
     private Integer price;
+
     private Integer participants;
+
+    @Min(value = 1)
+    @Max(value = 5)
     private Integer effort;
+
+    @Min(value = 1)
+    @Max(value = 5)
     private Integer duration;
 
     // region Getters and setters

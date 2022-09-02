@@ -5,7 +5,9 @@ import com.github.minthic.boredapp.entity.ActivityEntity;
 import com.github.minthic.boredapp.repository.ActivityRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -32,5 +34,15 @@ public class ActivityService
     {
         List<ActivityEntity> allActivities = activityRepository.findAll();
         return mapper.map(allActivities, new TypeToken<List<ActivityDTO>>() {}.getType());
+    }
+
+    public ActivityDTO read(int id)
+    {
+        ActivityEntity activity = activityRepository.findById(id).orElse(null);
+        if (activity == null)
+        {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        return mapper.map(activity, ActivityDTO.class);
     }
 }
