@@ -1,4 +1,4 @@
-package com.github.minthic.boredapp.controller.exception;
+package com.github.minthic.boredapp.controller.validation;
 
 import java.util.List;
 
