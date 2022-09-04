@@ -1,10 +1,20 @@
 package com.github.minthic.boredapp.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table
+
+@ToString
+@EqualsAndHashCode
+@AllArgsConstructor
+@NoArgsConstructor
 public class ActivityEntity implements Serializable
 {
     @Id
@@ -15,20 +25,6 @@ public class ActivityEntity implements Serializable
     private Integer participants;
     private Integer effort;
     private Integer duration;
-
-    public ActivityEntity(Integer id, String description, Integer price, Integer participants, Integer effort, Integer duration)
-    {
-        this.id = id;
-        this.description = description;
-        this.price = price;
-        this.participants = participants;
-        this.effort = effort;
-        this.duration = duration;
-    }
-
-    public ActivityEntity()
-    {
-    }
 
     // region Getters and setters
 
@@ -93,17 +89,4 @@ public class ActivityEntity implements Serializable
     }
 
     // endregion
-
-    @Override
-    public String toString()
-    {
-        return "Activity{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", participants=" + participants +
-                ", effort=" + effort +
-                ", duration=" + duration +
-                '}';
-    }
 }

@@ -1,26 +1,32 @@
 package com.github.minthic.boredapp.dto;
 
+import lombok.ToString;
+
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
+@ToString
 public class ActivityDTO
 {
     private Integer id;
 
+    @NotBlank
     private String description;
 
-    @Min(value = 1)
-    @Max(value = 5)
+    @NotNull
+    @Min(value = 1) @Max(value = 5)
     private Integer price;
 
     private Integer participants;
 
-    @Min(value = 1)
-    @Max(value = 5)
+    @NotNull
+    @Min(value = 1) @Max(value = 5)
     private Integer effort;
 
-    @Min(value = 1)
-    @Max(value = 5)
+    @NotNull
+    @Min(value = 1) @Max(value = 5)
     private Integer duration;
 
     // region Getters and setters
@@ -86,17 +92,4 @@ public class ActivityDTO
     }
 
     // endregion
-
-    @Override
-    public String toString()
-    {
-        return "ActivityDTO{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", participants=" + participants +
-                ", effort=" + effort +
-                ", duration=" + duration +
-                '}';
-    }
 }
